@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from "react-native";
 import Login from './screens/Login';
+import Permissions from "./screens/Permissions";
 import Container from './components/Container';
 
 const styles = StyleSheet.create({
@@ -15,7 +16,7 @@ const styles = StyleSheet.create({
 const App = () => {
   return (
     <View style={styles.master}>
-      <Login />
+      <Permissions />
     </View>
   );
 }
