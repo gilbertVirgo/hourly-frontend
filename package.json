@@ -1,0 +1,23 @@
+{
+  "name": "hourly",
+  "version": "1.0.0",
+  "description": "App to remind Christians hourly about Jesus",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gilbertVirgo/hourly.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gilbertVirgo/hourly/issues"
+  },
+  "homepage": "https://github.com/gilbertVirgo/hourly#readme",
+  "dependencies": {
+    "date-fns": "^2.9.0"
+  }
+}
