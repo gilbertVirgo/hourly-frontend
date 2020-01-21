@@ -11,7 +11,7 @@ const timeUntilNextRun = () => {
 		now.getDate() + 1,
 		6
 	);
-	const nextHour = new Date(
+	const nextRunTime = new Date(
 		now.getFullYear(),
 		now.getMonth(),
 		now.getDate(),
@@ -21,7 +21,7 @@ const timeUntilNextRun = () => {
 			: differenceInMilliseconds(tomorrowMorning, now)
 	);
 
-	differenceInMilliseconds(nextHour, now);
+	return differenceInMilliseconds(nextRunTime, now);
 };
 
 const run = async () => {
