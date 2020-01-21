@@ -3,15 +3,28 @@ const fs = require("fs").promises;
 const path = require("path");
 const differenceInMilliseconds = require("date-fns/differenceInMilliseconds");
 
-const run = async () => {
+const timeUntilNextRun = () => {
 	const now = new Date();
+	const tomorrowMorning = new Date(
+		now.getFullYear(),
+		now.getMonth(),
+		now.getDate() + 1,
+		6
+	);
 	const nextHour = new Date(
 		now.getFullYear(),
 		now.getMonth(),
 		now.getDate(),
-		now.getHours() + 1
+		// Take a break between 23:00 and 6:00
+		now.getHours() < 23
+			? now.getHours() + 1
+			: differenceInMilliseconds(tomorrowMorning, now)
 	);
 
+	differenceInMilliseconds(nextHour, now);
+};
+
+const run = async () => {
 	const verses = JSON.parse(
 		await fs.readFile(path.join(__dirname, "verses.json"))
 	);
@@ -28,7 +41,7 @@ const run = async () => {
 
 	console.log(`Promise dispatched: ${verse}`);
 
-	setTimeout(run, differenceInMilliseconds(nextHour, now));
+	setTimeout(run, timeUntilNextRun());
 };
 
 const init = () => {
