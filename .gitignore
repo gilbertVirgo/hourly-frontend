@@ -1,3 +1,4 @@
 .env
 dispatch/.env
 node_modules/
+server.log
